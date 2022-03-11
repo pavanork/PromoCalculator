@@ -24,54 +24,56 @@ namespace UnitTests
 		public void TestScenario1()
 		{
 			List<ProductSKU> cart = new List<ProductSKU>();
-			cart.Add(new ProductSKU('A'));
-			cart.Add(new ProductSKU('B'));
-			cart.Add(new ProductSKU('C'));
-			//cart.Add(new ProductSKU('D'));
+			cart.Add(new ProductSKU("A"));
+			cart.Add(new ProductSKU("B"));
+			cart.Add(new ProductSKU("C"));
+			//cart.Add(new ProductSKU("D"));
 
 			PriceCalculator pCalc = new PriceCalculator();
 			int price=pCalc.EvaluatedPriceOfCart(cart);
 
-			Assert.Equals(100,price);
+			Assert.AreEqual(100,price);
 		}
 
 		[TestMethod]
 		public void TestScenario2()
 		{
 			List<ProductSKU> cart = new List<ProductSKU>();
-			cart.AddRepeated(new ProductSKU('A'),5);
-			cart.AddRepeated(new ProductSKU('B'), 5);
-			cart.Add(new ProductSKU('C'));
-			//cart.Add(new ProductSKU('D'));
+			cart.AddRepeated(new ProductSKU("A"),5);
+			cart.AddRepeated(new ProductSKU("B"), 5);
+			cart.Add(new ProductSKU("C"));
+			//cart.Add(new ProductSKU("D"));
 
 			PriceCalculator pCalc = new PriceCalculator();
 			int price = pCalc.EvaluatedPriceOfCart(cart);
 
-			Assert.Equals(370, price);
+			Assert.AreEqual(370, price);
 		}
 
 		[TestMethod]
 		public void TestScenario3()
 		{
 			List<ProductSKU> cart = new List<ProductSKU>();
-			cart.AddRepeated(new ProductSKU('A'), 3);
-			cart.AddRepeated(new ProductSKU('B'), 5);
-			cart.Add(new ProductSKU('C'));
-			cart.Add(new ProductSKU('D'));
+			cart.AddRepeated(new ProductSKU("A"), 3);
+			cart.AddRepeated(new ProductSKU("B"), 5);
+			cart.Add(new ProductSKU("C"));
+			cart.Add(new ProductSKU("D"));
 
 			PriceCalculator pCalc = new PriceCalculator();
 			int price = pCalc.EvaluatedPriceOfCart(cart);
 
-			Assert.Equals(280, price);
+			Assert.AreEqual(280, price);
 		}
 
 		[TestMethod]
 		public void TestScenario4()
 		{
+			List<ProductSKU> cart = new List<ProductSKU>();
+			cart.Add(new ProductSKU("A"));
 			PriceCalculator pCalc = new PriceCalculator();
-			int skuPrice = pCalc.FetchPriceBySKU(new ProductSKU('A'));
+			int skuPrice = pCalc.EvaluatedPriceOfCart(cart);
 
-			Assert.Equals(50, skuPrice);
+			Assert.AreEqual(50, skuPrice);
 
 		}
 
