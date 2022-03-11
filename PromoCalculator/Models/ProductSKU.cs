@@ -8,15 +8,15 @@ namespace PromoCalculator.Models
 {
 	public class ProductSKU
 	{
-		public ProductSKU(char skuId)
+		public ProductSKU(string skuId)
 		{
 			SKUId = skuId;
 		}
 
-		public char SKUId { get; set; }
-		public int Price { get => FetchPriceBySKU(SKUId); }
+		public string SKUId { get; set; }
+		//public int Price { get => FetchPriceBySKU(SKUId); }
 
-		private int FetchPriceBySKU(char skuId)
+		/*private int FetchPriceBySKU(char skuId)
 		{
 			switch (SKUId)
 			{
@@ -31,6 +31,6 @@ namespace PromoCalculator.Models
 				default:
 					return 0;
 			}
-		}
+		}*/
 	}
 }
